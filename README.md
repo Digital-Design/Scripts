@@ -11,3 +11,15 @@ Script permettant :
 Utilisation :
   - lancer la commande ``` sudo ./newUser.sh {username} ``` et suivre les instructions
   - Le username ne doit pas éxister
+
+## delUser.sh
+
+Script permettant de :
+  - Supprimer l'user
+  - Supprimer le dossier ``` /home/{username} ```
+  - Supprimer son vhost
+  - Supprimer ses logs apache
+
+Utilisation :
+  - lancer la commande ``` sudo ./delUser.sh {username} ``` et suivre les instructions
+  - Le username doit éxister
