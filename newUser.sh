@@ -19,7 +19,7 @@ fi
 
 echo "Creating user "$1"..."
 
-useradd --create-home --skel=/etc/skel --shell=/bin/bash $1
+#useradd --create-home --skel=/etc/skel --shell=/bin/bash $1
 
 mkdir -p /home/$1/www/
 
