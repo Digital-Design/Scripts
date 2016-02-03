@@ -67,3 +67,9 @@ else
 	echo "Virtual host created !"
 fi
 
+a2ensite /etc/apache2/sites-available/$1.$servn.conf
+
+if [ service apache2 restart ]
+then
+        echo "Apache restarted"
+fi
