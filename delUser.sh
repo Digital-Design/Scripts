@@ -25,3 +25,6 @@ userdel $1
 rm -rf $userDir
 rm -rf /var/log/apache2/$1/
 rm -f /etc/apache2/sites-available/$1.$servn.conf
+rm -f /etc/apache2/sites-enabled/$1.$servn.conf
+
+/etc/init.d/apache2 restart
