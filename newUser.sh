@@ -63,13 +63,27 @@ echo "#### Virtual Host pour "$1.$servn"
 if [ ! -f /etc/apache2/sites-available/$1.$servn.conf ]
 then
 	echo "Virtual host wasn't created !"
+	exit 1
 else
 	echo "Virtual host created !"
 fi
 
-a2ensite /etc/apache2/sites-available/$1.$servn.conf
+echo "Creating symbolic link"
 
-if [ service apache2 restart ]
+/bin/ln -s /etc/apache2/sites-available/$1.$servn.conf /etc/apache2/sites-enabled/$1.$servn.conf
+
+echo "Restarting apache2 ..."
+
+/etc/init.d/apache2 restart
+
+apacheStatus=$(ps -ef | grep apache2 | grep -v grep)
+
+if [ -z "$apacheStatus" ]
 then
-        echo "Apache restarted"
+        echo "Apache2 is not started"
+        exit 1
 fi
+
+echo "Apache 2 started !"
+
+exit 0
